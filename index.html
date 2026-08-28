@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class 8 Master Gerund Challenge (50 Marks) - Permanent Audit Record</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --primary-light: #eef2ff;
+      --success: #10b981;
+      --success-light: #ecfdf5;
+      --error: #ef4444;
+      --error-light: #fef2f2;
+      --warning: #f59e0b;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+      padding: 28px 20px;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      border-radius: var(--radius);
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+    }
+
+    header h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      color: #e0e7ff;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input {
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+
+    .sticky-hud {
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(226, 232, 240, 0.8);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .stats-group {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .stat-badge {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-badge .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .stat-badge .value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .progress-bar-container {
+      flex: 1;
+      min-width: 180px;
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #4f46e5, #10b981);
+      transition: width 0.3s ease;
+    }
+
+    .q-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 22px 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+
+    .q-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-md);
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .q-number {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+
+    .q-mark {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .q-sentence {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .word-btn {
+      display: inline-block;
+      cursor: pointer;
+      padding: 2px 7px;
+      margin: 2px 3px;
+      border-radius: 6px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: var(--text-main);
+      font-weight: 600;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .word-btn:hover:not(.locked) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .word-btn.locked {
+      cursor: default;
+    }
+
+    .word-btn.selected-correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: #065f46 !important;
+      font-weight: 800 !important;
+      box-shadow: 0 0 0 2px var(--success);
+    }
+
+    .word-btn.selected-wrong {
+      background: var(--error-light) !important;
+      border-color: var(--error) !important;
+      color: #991b1b !important;
+      font-weight: 800 !important;
+      text-decoration: line-through;
+      box-shadow: 0 0 0 2px var(--error);
+    }
+
+    .word-btn.missed-correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: #065f46 !important;
+      font-weight: 800 !important;
+      border-style: dashed !important;
+    }
+
+    .feedback-box {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .feedback-box.correct {
+      background: var(--success-light);
+      border: 1.5px solid #a7f3d0;
+      color: #065f46;
+    }
+
+    .feedback-box.incorrect {
+      background: var(--error-light);
+      border: 1.5px solid #fecaca;
+      color: #991b1b;
+    }
+
+    .exp-toggle-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 12px;
+      background: #ffffff;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid currentColor;
+    }
+
+    .exp-content {
+      display: none;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(0,0,0,0.15);
+      font-size: 0.85rem;
+    }
+
+    .final-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      border: 1.5px solid var(--border);
+      margin-top: 32px;
+    }
+
+    .final-section h2 {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .final-score-display {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 16px 0;
+    }
+
+    .action-btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-submit-mail {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-retry {
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    .btn-view-audit {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid var(--primary);
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-view-audit:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-retry:hover, .btn-submit-mail:hover {
+      transform: translateY(-2px);
+    }
+
+    /* History and Cumulative Records Box */
+    .history-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      padding: 24px 20px;
+      margin-top: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    .history-header h3 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      max-height: 420px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .records-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .records-table th {
+      background: #f8fafc;
+      color: var(--text-muted);
+      padding: 10px 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .records-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .records-table tr:hover {
+      background-color: var(--primary-light);
+    }
+
+    .badge-percent {
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .badge-high { background: var(--success-light); color: var(--success); }
+    .badge-mid { background: #fef3c7; color: #d97706; }
+    .badge-low { background: var(--error-light); color: var(--error); }
+
+    .rule-pill {
+      display: inline-block;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    /* Modal for Question-by-Question Past Attempt Audit */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      width: 100%;
+      max-width: 850px;
+      max-height: 85vh;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      background: var(--primary);
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .modal-body {
+      padding: 20px 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-meta {
+      background: var(--primary-light);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .audit-q-item {
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .audit-q-item.correct {
+      background: var(--success-light);
+      border-color: #a7f3d0;
+    }
+
+    .audit-q-item.wrong {
+      background: var(--error-light);
+      border-color: #fecaca;
+    }
+
+    .audit-q-item.unattempted {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Class 8 English Grammar Master Challenge</h1>
+      <p>Identify the <strong>Gerund</strong> (-ing form acting as a Noun) in each sentence. Questions automatically reshuffle every time this page is opened. Click on the word to lock your answer!</p>
+    </header>
+
+    <div class="info-card">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="studentName">Student Name *</label>
+          <input type="text" id="studentName" placeholder="Enter Full Name" required />
+        </div>
+        <div class="form-group">
+          <label for="studentClass">Class & Section *</label>
+          <input type="text" id="studentClass" placeholder="e.g. Class 8 - A" required />
+        </div>
+        <div class="form-group">
+          <label for="rollNo">Roll Number</label>
+          <input type="text" id="rollNo" placeholder="e.g. 24" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Score & Live Progress Bar -->
+    <div class="sticky-hud">
+      <div class="stats-group">
+        <div class="stat-badge">
+          <span class="label">Total Score</span>
+          <span class="value" id="hudScore">0 / 50</span>
+        </div>
+        <div class="stat-badge">
+          <span class="label">Percentage</span>
+          <span class="value" id="hudPercent">0.0%</span>
+        </div>
+        <div class="stat-badge">
+          <span class="label">Answered</span>
+          <span class="value" id="hudAnswered">0 / 50</span>
+        </div>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- Quiz Question Cards Container -->
+    <div id="quizContainer"></div>
+
+    <!-- Final Submission & Teacher Report Box -->
+    <div class="final-section" id="finalSection">
+      <h2>Challenge Summary</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Review your performance and report your score to the teacher.</p>
+      <div class="final-score-display" id="finalScoreDisplay">0 / 50 (0%)</div>
+      
+      <div class="action-btn-group">
+        <button class="btn btn-submit-mail" onclick="submitToTeacher()">
+          ✉ Submit Result to Master (balaswamysm@gmail.com)
+        </button>
+        <button class="btn btn-retry" onclick="restartQuiz()">
+          🔄 Retake Quiz (Shuffle Again)
+        </button>
+      </div>
+    </div>
+
+    <!-- Persistent Cumulative Attempt History Record Box -->
+    <div class="history-card">
+      <div class="history-header">
+        <div>
+          <h3>📋 Permanent Student Attempt Ledger & Audit Box</h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+            Attempts are permanently preserved in this browser. Click "🔍 View Detailed Breakdown" on any attempt to inspect all 50 questions with chosen and correct answers.
+          </p>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn" style="padding: 6px 12px; font-size: 0.8rem; background: #e2e8f0; color: #0f172a;" onclick="exportHistoryCSV()">
+            📥 Export CSV
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="records-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date & Time</th>
+              <th>Student Name</th>
+              <th>Class</th>
+              <th>Roll No</th>
+              <th>Marks (out of 50)</th>
+              <th>Percentage</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <tr>
+              <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 18px;">
+                No attempts recorded yet. Complete the 50 questions to record your first score!
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed Attempt Modal -->
+  <div class="modal-backdrop" id="auditModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h4 id="modalTitle">Attempt Audit Report</h4>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-meta" id="modalMeta"></div>
+        <div id="modalBreakdownContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const masterQuestions = [
+      { id: 1, sentence: "Swimming is a very healthy full-body exercise.", target: "Swimming", role: "Subject of the sentence", explanation: "'Swimming' ends in -ing and acts as the subject of the sentence (a noun), making it a Gerund." },
+      { id: 2, sentence: "Rohan really loves reading historical comic books.", target: "reading", role: "Direct Object of the verb 'loves'", explanation: "'Reading' is the object answering what Rohan loves. Hence, it functions as a noun (Gerund)." },
+      { id: 3, sentence: "She is very fond of drawing colorful landscapes.", target: "drawing", role: "Object of the Preposition 'of'", explanation: "Whenever an -ing verb follows a preposition like 'of', 'in', 'at', 'for', it acts as a Gerund." },
+      { id: 4, sentence: "His favorite hobby is gardening in the evening.", target: "gardening", role: "Subject Complement", explanation: "'Gardening' renames the subject 'hobby' following the linking verb 'is', functioning as a Gerund." },
+      { id: 5, sentence: "Walking daily in the morning keeps the doctor away.", target: "Walking", role: "Subject of the sentence", explanation: "'Walking' acts as the noun performing the main action of keeping the doctor away." },
+      { id: 6, sentence: "They strictly prohibited smoking inside the auditorium.", target: "smoking", role: "Direct Object of the verb 'prohibited'", explanation: "'Smoking' is what was prohibited, acting as a direct object noun." },
+      { id: 7, sentence: "He apologized sincerely for arriving late to the assembly.", target: "arriving", role: "Object of the Preposition 'for'", explanation: "Follows the preposition 'for' to explain the reason, acting as a Gerund." },
+      { id: 8, sentence: "Dancing requires continuous practice and physical balance.", target: "Dancing", role: "Subject of the sentence", explanation: "'Dancing' is the noun form denoting an art/activity that requires practice." },
+      { id: 9, sentence: "We totally enjoy cooking traditional pasta together.", target: "cooking", role: "Direct Object of the verb 'enjoy'", explanation: "'Cooking' receives the action of the verb 'enjoy' as a noun." },
+      { id: 10, sentence: "My grandfather always avoids eating too much sugar.", target: "eating", role: "Direct Object of the verb 'avoids'", explanation: "'Eating' acts as the noun object of the transitive verb 'avoids'." },
+      { id: 11, sentence: "Singing brought immense peace to her mind.", target: "Singing", role: "Subject of the sentence", explanation: "'Singing' is the activity functioning as the grammatical subject." },
+      { id: 12, sentence: "The boys were punished for making loud noise.", target: "making", role: "Object of the Preposition 'for'", explanation: "'Making' follows the preposition 'for' and functions as a Gerund." },
+      { id: 13, sentence: "Her main ambition is teaching underprivileged children.", target: "teaching", role: "Subject Complement", explanation: "'Teaching' complements and explains what the subject 'ambition' is." },
+      { id: 14, sentence: "Painting allows artists to express their deep emotions.", target: "Painting", role: "Subject of the sentence", explanation: "'Painting' acts as the noun representing the art form." },
+      { id: 15, sentence: "You should completely give up biting your fingernails.", target: "biting", role: "Object of the Phrasal Verb 'give up'", explanation: "'Biting' serves as the noun complement following the phrasal verb." },
+      { id: 16, sentence: "She insisted on buying fresh organic fruits.", target: "buying", role: "Object of the Preposition 'on'", explanation: "Follows the preposition 'on', making it a Gerund." },
+      { id: 17, sentence: "Jogging in the park helps in building stamina.", target: "Jogging", role: "Subject of the sentence", explanation: "'Jogging' acts as the main subject noun." },
+      { id: 18, sentence: "He is truly good at solving tricky math puzzles.", target: "solving", role: "Object of the Preposition 'at'", explanation: "Comes directly after the preposition 'at' as a Gerund." },
+      { id: 19, sentence: "I definitely prefer cycling over driving a car.", target: "cycling", role: "Direct Object of 'prefer'", explanation: "'Cycling' answers what is preferred, making it a Gerund." },
+      { id: 20, sentence: "Writing clean code takes patience and discipline.", target: "Writing", role: "Subject of the sentence", explanation: "'Writing' is an activity acting as the subject noun." },
+      { id: 21, sentence: "He was thoroughly tired of waiting at the bus stop.", target: "waiting", role: "Object of the Preposition 'of'", explanation: "Functions as the noun object to the preposition 'of'." },
+      { id: 22, sentence: "Skipping breakfast can harm your daily energy levels.", target: "Skipping", role: "Subject of the sentence", explanation: "'Skipping' is the noun phrase subject of the verb 'can harm'." },
+      { id: 23, sentence: "Please stop shouting during the ongoing lecture.", target: "shouting", role: "Direct Object of 'stop'", explanation: "'Shouting' acts as the direct noun object of the command." },
+      { id: 24, sentence: "He prevented the toddler from falling off the sofa.", target: "falling", role: "Object of the Preposition 'from'", explanation: "Gerund acting as the object of preposition 'from'." },
+      { id: 25, sentence: "Skating on the thin ice rink is quite dangerous.", target: "Skating", role: "Subject of the sentence", explanation: "'Skating' is the noun subject taking the singular verb 'is'." },
+      { id: 26, sentence: "We are eagerly looking forward to meeting our cousins.", target: "meeting", role: "Object of Preposition 'to'", explanation: "In 'looking forward to', 'to' is a preposition, so 'meeting' is a Gerund." },
+      { id: 27, sentence: "Listening attentively is a crucial classroom skill.", target: "Listening", role: "Subject of the sentence", explanation: "'Listening' serves as the grammatical subject." },
+      { id: 28, sentence: "She confessed to cheating on the weekly spelling test.", target: "cheating", role: "Object of Preposition 'to'", explanation: "Follows the preposition 'to' after the verb 'confessed'." },
+      { id: 29, sentence: "Traveling opens up new perspectives about the world.", target: "Traveling", role: "Subject of the sentence", explanation: "'Traveling' functions as the subject noun." },
+      { id: 30, sentence: "My father suggested going to the beach this weekend.", target: "going", role: "Direct Object of 'suggested'", explanation: "'Going' is the object of the transitive verb 'suggested'." },
+      { id: 31, sentence: "He succeeded by working diligently day and night.", target: "working", role: "Object of Preposition 'by'", explanation: "Object of the preposition 'by'." },
+      { id: 32, sentence: "Barking is not permitted by pets in this building.", target: "Barking", role: "Subject of the sentence", explanation: "'Barking' acts as the noun subject." },
+      { id: 33, sentence: "They considered buying a brand new hybrid car.", target: "buying", role: "Direct Object of 'considered'", explanation: "'Buying' is the noun object receiving the verb action." },
+      { id: 34, sentence: "She thanked him warmly for helping her carry bags.", target: "helping", role: "Object of Preposition 'for'", explanation: "Functions as a Gerund following the preposition 'for'." },
+      { id: 35, sentence: "Rowing across the wide lake made their arms ache.", target: "Rowing", role: "Subject of the sentence", explanation: "'Rowing' is the gerund noun subject." },
+      { id: 36, sentence: "Do you mind closing the front window tightly?", target: "closing", role: "Direct Object of 'mind'", explanation: "'Closing' acts as the noun object of the polite verb 'mind'." },
+      { id: 37, sentence: "He is terrified of speaking in front of large crowds.", target: "speaking", role: "Object of Preposition 'of'", explanation: "Object of preposition 'of'." },
+      { id: 38, sentence: "Washing hands regularly stops the spread of infections.", target: "Washing", role: "Subject of the sentence", explanation: "'Washing' acts as the head noun of the subject phrase." },
+      { id: 39, sentence: "I cannot imagine living without modern electricity.", target: "living", role: "Direct Object of 'imagine'", explanation: "'Living' is the object answering what cannot be imagined." },
+      { id: 40, sentence: "She is passionate about learning ancient world languages.", target: "learning", role: "Object of Preposition 'about'", explanation: "Gerund following the preposition 'about'." },
+      { id: 41, sentence: "Cheating during examinations leads to serious penalty.", target: "Cheating", role: "Subject of the sentence", explanation: "'Cheating' is a Gerund acting as the sentence subject." },
+      { id: 42, sentence: "He admitted stealing the silver watch from the drawer.", target: "stealing", role: "Direct Object of 'admitted'", explanation: "'Stealing' is the direct object of the verb 'admitted'." },
+      { id: 43, sentence: "The coach praised him for scoring the winning goal.", target: "scoring", role: "Object of Preposition 'for'", explanation: "Prepositional object acting as a Gerund." },
+      { id: 44, sentence: "Baking fresh chocolate cookies filled the house with aroma.", target: "Baking", role: "Subject of the sentence", explanation: "'Baking' is the gerund subject taking the verb 'filled'." },
+      { id: 45, sentence: "She kept on practicing her violin until midnight.", target: "practicing", role: "Object of Preposition 'on'", explanation: "'Practicing' follows the preposition 'on'." },
+      { id: 46, sentence: "His greatest talent is whistling melodic film songs.", target: "whistling", role: "Subject Complement", explanation: "'Whistling' renames 'talent' as a subject complement." },
+      { id: 47, sentence: "Overeating can cause severe stomach indigestion.", target: "Overeating", role: "Subject of the sentence", explanation: "'Overeating' is a gerund noun acting as the subject." },
+      { id: 48, sentence: "He narrowly escaped being caught by the security guard.", target: "being", role: "Direct Object (Passive Gerund)", explanation: "'Being' acts as the passive gerund object of the verb 'escaped'." },
+      { id: 49, sentence: "We learned the proper art of making pottery.", target: "making", role: "Object of Preposition 'of'", explanation: "'Making' follows the preposition 'of'." },
+      { id: 50, sentence: "Smiling naturally makes you look warm and approachable.", target: "Smiling", role: "Subject of the sentence", explanation: "'Smiling' is a Gerund acting as the subject of the verb 'makes'." }
+    ];
+
+    let currentQuestions = [];
+    let userResponses = {};
+    let score = 0;
+    let answeredCount = 0;
+    let isAttemptSaved = false;
+
+    // Fisher-Yates shuffle algorithm for automatic reshuffling
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function initQuiz() {
+      currentQuestions = shuffleArray(masterQuestions);
+      userResponses = {};
+      score = 0;
+      answeredCount = 0;
+      isAttemptSaved = false;
+
+      renderQuiz();
+      updateHUD();
+      renderHistoryTable();
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = "";
+
+      currentQuestions.forEach((q, index) => {
+        const card = document.createElement("div");
+        card.className = "q-card";
+        card.id = `qCard_${q.id}`;
+
+        const qHeader = `
+          <div class="q-header">
+            <span class="q-number">Question ${index + 1} of 50</span>
+            <span class="q-mark">1 Mark</span>
+          </div>
+        `;
+
+        const words = q.sentence.split(" ");
+        const wordsHtml = words.map((word) => {
+          const cleanWord = word.replace(/[^a-zA-Z]/g, "");
+          return `<span class="word-btn" data-qid="${q.id}" data-word="${cleanWord}" data-raw="${word}" onclick="handleWordClick(${q.id}, '${cleanWord}', this)">${word}</span>`;
+        }).join(" ");
+
+        const sentenceHtml = `<div class="q-sentence">${wordsHtml}</div>`;
+
+        const feedbackHtml = `
+          <div class="feedback-box" id="feedback_${q.id}">
+            <div id="feedbackText_${q.id}"></div>
+            <div class="exp-toggle-btn" onclick="toggleExp(${q.id})">🔍 Click to Show/Hide Explanation</div>
+            <div class="exp-content" id="exp_${q.id}">
+              <div class="rule-pill">Grammar Function: ${q.role}</div>
+              <p>${q.explanation}</p>
+            </div>
+          </div>
+        `;
+
+        card.innerHTML = qHeader + sentenceHtml + feedbackHtml;
+        container.appendChild(card);
+      });
+    }
+
+    function handleWordClick(qid, clickedCleanWord, element) {
+      if (userResponses[qid]) return;
+
+      const q = currentQuestions.find(item => item.id === qid);
+      const isCorrect = clickedCleanWord.toLowerCase() === q.target.toLowerCase();
+
+      const card = document.getElementById(`qCard_${qid}`);
+      const wordBtns = card.querySelectorAll(".word-btn");
+      wordBtns.forEach(btn => btn.classList.add("locked"));
+
+      userResponses[qid] = {
+        questionSentence: q.sentence,
+        chosen: clickedCleanWord,
+        target: q.target,
+        isCorrect: isCorrect,
+        role: q.role,
+        explanation: q.explanation
+      };
+
+      answeredCount++;
+
+      const feedbackBox = document.getElementById(`feedback_${qid}`);
+      const feedbackText = document.getElementById(`feedbackText_${qid}`);
+
+      if (isCorrect) {
+        score++;
+        element.classList.add("selected-correct");
+        feedbackBox.className = "feedback-box correct";
+        feedbackText.innerHTML = `<strong>🎉 Correct! (1 Mark)</strong> You accurately identified <strong>"${q.target}"</strong> as the Gerund.`;
+      } else {
+        element.classList.add("selected-wrong");
+        wordBtns.forEach(btn => {
+          if (btn.getAttribute("data-word").toLowerCase() === q.target.toLowerCase()) {
+            btn.classList.add("missed-correct");
+          }
+        });
+        feedbackBox.className = "feedback-box incorrect";
+        feedbackText.innerHTML = `<strong>❌ Incorrect Answer (0 Marks)</strong> You picked <em>"${clickedCleanWord}"</em>, but the correct Gerund is <strong>"${q.target}"</strong>.`;
+      }
+
+      feedbackBox.style.display = "block";
+      updateHUD();
+
+      // Automatically save permanently when all 50 questions are completed
+      if (answeredCount === 50 && !isAttemptSaved) {
+        saveAttemptRecord();
+      }
+    }
+
+    function toggleExp(qid) {
+      const exp = document.getElementById(`exp_${qid}`);
+      exp.style.display = exp.style.display === "block" ? "none" : "block";
+    }
+
+    function updateHUD() {
+      const percentage = ((score / 50) * 100).toFixed(1);
+      document.getElementById("hudScore").innerText = `${score} / 50`;
+      document.getElementById("hudPercent").innerText = `${percentage}%`;
+      document.getElementById("hudAnswered").innerText = `${answeredCount} / 50`;
+      document.getElementById("progressFill").style.width = `${(answeredCount / 50) * 100}%`;
+      document.getElementById("finalScoreDisplay").innerText = `${score} / 50 (${percentage}%)`;
+    }
+
+    // LocalStorage Permanent Records Management
+    function getHistoryRecords() {
+      try {
+        const data = localStorage.getItem("class8_gerund_permanent_ledger");
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveAttemptRecord() {
+      isAttemptSaved = true;
+      const name = document.getElementById("studentName").value.trim() || "Anonymous Student";
+      const sClass = document.getElementById("studentClass").value.trim() || "Class 8";
+      const roll = document.getElementById("rollNo").value.trim() || "—";
+      const percentage = ((score / 50) * 100).toFixed(1);
+
+      const now = new Date();
+      const dateStr = now.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+      const timeStr = now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+      // Save complete 50 question audit trail for this specific attempt
+      const detailedAudit = currentQuestions.map((q, idx) => {
+        const res = userResponses[q.id];
+        return {
+          qNum: idx + 1,
+          sentence: q.sentence,
+          target: q.target,
+          role: q.role,
+          explanation: q.explanation,
+          chosen: res ? res.chosen : "Unattempted",
+          isCorrect: res ? res.isCorrect : false
+        };
+      });
+
+      const newRecord = {
+        id: Date.now(),
+        dateTime: `${dateStr}, ${timeStr}`,
+        name: name,
+        className: sClass,
+        rollNo: roll,
+        score: score,
+        percentage: percentage,
+        details: detailedAudit
+      };
+
+      const history = getHistoryRecords();
+      history.unshift(newRecord); // Prepend latest attempt to top
+      localStorage.setItem("class8_gerund_permanent_ledger", JSON.stringify(history));
+
+      renderHistoryTable();
+    }
+
+    function renderHistoryTable() {
+      const history = getHistoryRecords();
+      const tbody = document.getElementById("historyTableBody");
+
+      if (!history || history.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 18px;">
+              No attempts recorded yet. Complete the 50 questions to record your first score!
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = history.map((rec, index) => {
+        const pct = parseFloat(rec.percentage);
+        let badgeClass = "badge-low";
+        if (pct >= 80) badgeClass = "badge-high";
+        else if (pct >= 50) badgeClass = "badge-mid";
+
+        return `
+          <tr>
+            <td><strong>${index + 1}</strong></td>
+            <td style="color: var(--text-muted); font-size: 0.8rem;">${rec.dateTime}</td>
+            <td><strong>${rec.name}</strong></td>
+            <td>${rec.className}</td>
+            <td>${rec.rollNo}</td>
+            <td><strong>${rec.score} / 50</strong></td>
+            <td><span class="badge-percent ${badgeClass}">${rec.percentage}%</span></td>
+            <td>
+              <button class="btn-view-audit" onclick="openAuditModal(${rec.id})">
+                🔍 View Breakdown
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function openAuditModal(recordId) {
+      const history = getHistoryRecords();
+      const rec = history.find(r => r.id === recordId);
+      if (!rec) return;
+
+      document.getElementById("modalTitle").innerText = `Attempt Audit: ${rec.name} (${rec.percentage}%)`;
+      
+      document.getElementById("modalMeta").innerHTML = `
+        <div><strong>Student:</strong> ${rec.name}</div>
+        <div><strong>Class:</strong> ${rec.className}</div>
+        <div><strong>Roll No:</strong> ${rec.rollNo}</div>
+        <div><strong>Date & Time:</strong> ${rec.dateTime}</div>
+        <div><strong>Score:</strong> ${rec.score} / 50 Marks</div>
+        <div><strong>Result:</strong> ${rec.percentage}%</div>
+      `;
+
+      const container = document.getElementById("modalBreakdownContainer");
+      container.innerHTML = "";
+
+      rec.details.forEach(item => {
+        const div = document.createElement("div");
+        const statusClass = item.chosen === "Unattempted" ? "unattempted" : (item.isCorrect ? "correct" : "wrong");
+        const icon = item.isCorrect ? "✅ Correct (+1 Mark)" : (item.chosen === "Unattempted" ? "⚪ Unattempted (0 Marks)" : "❌ Wrong (0 Marks)");
+
+        div.className = `audit-q-item ${statusClass}`;
+        div.innerHTML = `
+          <div style="display:flex; justify-content:space-between; font-weight:700; margin-bottom:4px;">
+            <span>Q${item.qNum}. ${item.sentence}</span>
+            <span>${icon}</span>
+          </div>
+          <div style="font-size:0.83rem; color:#334155; margin-bottom:4px;">
+            <strong>Student Picked:</strong> <em>"${item.chosen}"</em> | <strong>Correct Gerund:</strong> <strong style="color:#059669;">"${item.target}"</strong> (${item.role})
+          </div>
+          <div style="font-size:0.8rem; color:#64748b; border-top:1px dashed rgba(0,0,0,0.1); padding-top:4px;">
+            💡 ${item.explanation}
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      document.getElementById("auditModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("auditModal").style.display = "none";
+    }
+
+    // Close modal when clicking outside box
+    window.onclick = function(event) {
+      const modal = document.getElementById("auditModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    function exportHistoryCSV() {
+      const history = getHistoryRecords();
+      if (!history || history.length === 0) {
+        alert("No records to export yet!");
+        return;
+      }
+
+      let csvContent = "data:text/csv;charset=utf-8,";
+      csvContent += "Attempt No,Date Time,Student Name,Class,Roll No,Score Out of 50,Percentage\n";
+
+      history.forEach((r, idx) => {
+        csvContent += `"${idx + 1}","${r.dateTime}","${r.name}","${r.className}","${r.rollNo}","${r.score}","${r.percentage}%"\n`;
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `Permanent_Gerund_Records_Class8_${Date.now()}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function restartQuiz() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      initQuiz();
+    }
+
+    function submitToTeacher() {
+      const name = document.getElementById("studentName").value.trim();
+      const sClass = document.getElementById("studentClass").value.trim();
+      const roll = document.getElementById("rollNo").value.trim() || "N/A";
+
+      if (!name || !sClass) {
+        alert("Please enter Student Name and Class at the top before submitting!");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      if (answeredCount < 50) {
+        const confirmSub = confirm(`You have only answered ${answeredCount} out of 50 questions. Do you still want to record and submit?`);
+        if (!confirmSub) return;
+      }
+
+      if (!isAttemptSaved) {
+        saveAttemptRecord();
+      }
+
+      const percent = ((score / 50) * 100).toFixed(1);
+      const recipient = "balaswamysm@gmail.com";
+      const subject = encodeURIComponent(`Class 8 Gerund Quiz Result: ${name} (${sClass}) - Score: ${score}/50`);
+
+      let breakdown = "";
+      currentQuestions.forEach((q, idx) => {
+        const res = userResponses[q.id];
+        if (res) {
+          const status = res.isCorrect ? "[CORRECT - 1M]" : "[WRONG - 0M]";
+          breakdown += `Q${idx + 1}: ${status} | Selected: "${res.chosen}" | Target: "${res.target}"\n`;
+        } else {
+          breakdown += `Q${idx + 1}: [UNATTEMPTED - 0M] | Target: "${q.target}"\n`;
+        }
+      });
+
+      const emailBody = encodeURIComponent(
+        `CLASS 8 GERUND EXERCISE PERFORMANCE REPORT\n` +
+        `=========================================\n` +
+        `Student Name : ${name}\n` +
+        `Class & Sec  : ${sClass}\n` +
+        `Roll Number  : ${roll}\n\n` +
+        `Total Score  : ${score} / 50 Marks\n` +
+        `Percentage   : ${percent}%\n` +
+        `Submission   : ${new Date().toLocaleString()}\n\n` +
+        `QUESTION-WISE DETAILED BREAKDOWN:\n` +
+        `-----------------------------------------\n` +
+        breakdown +
+        `\n-----------------------------------------\n` +
+        `Saved permanently in student history audit ledger.`
+      );
+
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${emailBody}`;
+    }
+
+    window.onload = initQuiz;
+  </script>
+</body>
+</html>
